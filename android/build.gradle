@@ -46,10 +46,10 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        if (project == rootProject) {
+//        if (project == rootProject) {
             classpath 'com.android.tools.build:gradle:4.2.2'
             classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$asyncStorageKtVersion"
-        }
+//        }
     }
 }
 
@@ -71,7 +71,7 @@ def useNextStorage = getFlagOrDefault("AsyncStorage_useNextStorage", false)
 
 apply plugin: 'com.android.library'
 if (useNextStorage) {
-    apply plugin: 'kotlin-android'
+    apply plugin: 'org.jetbrains.kotlin.android'
     apply plugin: 'kotlin-kapt'
     apply from: './testresults.gradle'
 }
