@@ -84,7 +84,13 @@ android {
         buildConfigField "Long", "AsyncStorage_db_size", "${dbSizeInMB}L"
         buildConfigField "boolean", "AsyncStorage_useDedicatedExecutor", "${useDedicatedExecutor}"
         buildConfigField "boolean", "AsyncStorage_useNextStorage", "${useNextStorage}"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
     }
+
     lintOptions {
         abortOnError false
     }
